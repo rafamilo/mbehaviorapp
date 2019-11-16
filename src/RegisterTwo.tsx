@@ -1,7 +1,8 @@
 import 'react-native-gesture-handler'
 import React from 'react';
-import { Text, TouchableOpacity, KeyboardAvoidingView, TextInput, ScrollView, StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, TextInput, ScrollView, StyleSheet, View } from 'react-native';
 import DismissKeyboard from './DismissKeyboard';
+import RegisterMenuFooter from './RegisterMenuFooter';
 
 export default function RegisterTwo({ navigation }) {
   return (
@@ -15,20 +16,7 @@ export default function RegisterTwo({ navigation }) {
               placeholderTextColor='#3E3E3E'
             />
           </ScrollView>
-          <View style={{ backgroundColor: '#FFF', paddingVertical: 15, paddingHorizontal: 30, marginHorizontal: '-13%', minWidth: '125.5%', maxWidth: '125.5%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <TouchableOpacity
-              style={{ backgroundColor: 'transparent', width: '50%' }}
-              onPress={() => navigation.navigate('RegisterOne')}
-            >
-              <Text style={{ fontWeight: 'bold', color: '#3E3E3E' }}>{'< Anterior'}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ backgroundColor: 'transparent', width: '50%' }}
-              onPress={() => navigation.navigate('RegisterThree')}
-            >
-              <Text style={{ fontWeight: 'bold', color: '#3E3E3E', textAlign: 'right' }}>Próximo ></Text>
-            </TouchableOpacity>
-          </View>
+          <RegisterMenuFooter navigation={navigation} antes="RegisterOne" depois="RegisterThree" />
         </KeyboardAvoidingView>
       </View>
     </DismissKeyboard>

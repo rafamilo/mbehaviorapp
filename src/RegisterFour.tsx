@@ -1,67 +1,89 @@
 import 'react-native-gesture-handler'
-import React from 'react';
-import { TextInput, Text, TouchableOpacity, KeyboardAvoidingView, ScrollView, StyleSheet, View } from 'react-native';
+import React, { Component } from 'react';
+import { TextInput, Text, KeyboardAvoidingView, ScrollView, StyleSheet, View } from 'react-native';
 import DismissKeyboard from './DismissKeyboard';
 import { CheckBox } from 'react-native-elements';
+import RegisterMenuFooter from './RegisterMenuFooter';
 
 
-export default function RegisterFour({ navigation }) {
-  this.state = { checked: true }
+export default class RegisterFour extends Component {
 
-  return (
-    <DismissKeyboard>
-      <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
-        <KeyboardAvoidingView behavior="position" style={styles.alignItemsCenter}>
-          <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center' }}>
-            <CheckBox
-              containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
-              textStyle={{ color: '#FFF' }}
-              checkedColor='#FFF'
-              uncheckedColor='#FFF'
-              title='De uso pessoal'
-              checked={this.state.checked}
-            />
-            <CheckBox
-              containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
-              textStyle={{ color: '#FFF' }}
-              checkedColor='#FFF'
-              uncheckedColor='#FFF'
-              title='De uso para trabalho'
-              checked={!this.state.checked}
-            />
-            <CheckBox
-              containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
-              textStyle={{ color: '#FFF' }}
-              checkedColor='#FFF'
-              uncheckedColor='#FFF'
-              title='Outro'
-              checked={this.state.checked}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder='Qual?'
-              multiline={true}
-              placeholderTextColor='#FFF'
-            />
-          </ScrollView>
-          <View style={{ backgroundColor: '#FFF', paddingVertical: 15, paddingHorizontal: 30, marginHorizontal: '-13%', minWidth: '125.5%', maxWidth: '125.5%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <TouchableOpacity
-              style={{ backgroundColor: 'transparent', width: '50%' }}
-              onPress={() => navigation.navigate('RegisterThree')}
-            >
-              <Text style={{ fontWeight: 'bold', color: '#3E3E3E' }}>{'< Anterior'}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ backgroundColor: 'transparent', width: '50%' }}
-              onPress={() => navigation.navigate('RegisterFive')}
-            >
-              <Text style={{ fontWeight: 'bold', color: '#3E3E3E', textAlign: 'right' }}>Próximo ></Text>
-            </TouchableOpacity>
-          </View>
-        </KeyboardAvoidingView>
-      </View>
-    </DismissKeyboard>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: true,
+      quantidadeTelefones: '',
+      usoPessoal: false,
+      usoTrabalho: false,
+      outro: false,
+      qual: '',
+    };
+  }
+
+  render(this) {
+    return (
+      <DismissKeyboard>
+        <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
+          <KeyboardAvoidingView behavior="padding" style={styles.alignItemsCenter}>
+            <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center' }}>
+              <TextInput
+                autoFocus
+                style={styles.input}
+                keyboardType="number-pad"
+                placeholder='Quantos smartphones você possui?'
+                value={this.state.quantidadeTelefones}
+                onChangeText={quantidadeTelefones => this.setState({ quantidadeTelefones })}
+                placeholderTextColor='#FFF'
+              />
+              <Text>
+              </Text>
+              {this.state.quantidadeTelefones && Number.parseInt(this.state.quantidadeTelefones) ?
+                (<View>
+                  <CheckBox
+                    containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
+                    textStyle={{ color: '#FFF' }}
+                    checkedColor='#FFF'
+                    uncheckedColor='#FFF'
+                    title='De uso pessoal'
+                    checked={this.state.usoPessoal}
+                    onPress={() => this.setState({ usoPessoal: !this.state.usoPessoal })}
+                  />
+                  <CheckBox
+                    containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
+                    textStyle={{ color: '#FFF' }}
+                    checkedColor='#FFF'
+                    uncheckedColor='#FFF'
+                    title='De uso para trabalho'
+                    checked={this.state.usoTrabalho}
+                    onPress={() => this.setState({ usoTrabalho: !this.state.usoTrabalho })}
+                  />
+                  <CheckBox
+                    containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
+                    textStyle={{ color: '#FFF' }}
+                    checkedColor='#FFF'
+                    uncheckedColor='#FFF'
+                    title='Outro'
+                    checked={this.state.outro}
+                    onPress={() => this.setState({ outro: !this.state.outro })}
+                  />
+                  {this.state.outro && (
+                    <TextInput
+                      style={styles.input}
+                      placeholder='Qual?'
+                      multiline={true}
+                      placeholderTextColor='#FFF'
+                      value={this.state.qual}
+                      onChangeText={qual => this.setState({ qual })}
+                    />
+                  )}
+                </View>) : null}
+            </ScrollView>
+            <RegisterMenuFooter navigation={this.props.navigation} antes="RegisterThree" depois="RegisterFive" />
+          </KeyboardAvoidingView>
+        </View>
+      </DismissKeyboard>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
