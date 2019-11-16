@@ -1,45 +1,47 @@
 import 'react-native-gesture-handler'
 import React from 'react';
-import { Text, TouchableOpacity, TouchableWithoutFeedback, KeyboardAvoidingView, TextInput, ScrollView, StyleSheet, View, Keyboard } from 'react-native';
+import { TextInput, Text, TouchableOpacity, KeyboardAvoidingView, ScrollView, StyleSheet, View } from 'react-native';
+import DismissKeyboard from './DismissKeyboard';
 import { CheckBox } from 'react-native-elements';
 
-const DismissKeyboard = ({ children }) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    {children}
-  </TouchableWithoutFeedback>
-);
 
 export default function RegisterFour({ navigation }) {
-
-  this.state = {
-    checked: true,
-  }
+  this.state = { checked: true }
 
   return (
     <DismissKeyboard>
       <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
         <KeyboardAvoidingView behavior="position" style={styles.alignItemsCenter}>
-          <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center' }}>
             <CheckBox
-              center
+              containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
+              textStyle={{ color: '#FFF' }}
+              checkedColor='#FFF'
+              uncheckedColor='#FFF'
               title='De uso pessoal'
-              checkedIcon='dot-circle-o'
-              uncheckedIcon='circle-o'
               checked={this.state.checked}
             />
             <CheckBox
-              center
+              containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
+              textStyle={{ color: '#FFF' }}
+              checkedColor='#FFF'
+              uncheckedColor='#FFF'
               title='De uso para trabalho'
-              checkedIcon='dot-circle-o'
-              uncheckedIcon='circle-o'
-              checked={this.state.checked}
+              checked={!this.state.checked}
             />
             <CheckBox
-              center
+              containerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
+              textStyle={{ color: '#FFF' }}
+              checkedColor='#FFF'
+              uncheckedColor='#FFF'
               title='Outro'
-              checkedIcon='dot-circle-o'
-              uncheckedIcon='circle-o'
               checked={this.state.checked}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder='Qual?'
+              multiline={true}
+              placeholderTextColor='#FFF'
             />
           </ScrollView>
           <View style={{ backgroundColor: '#FFF', paddingVertical: 15, paddingHorizontal: 30, marginHorizontal: '-13%', minWidth: '125.5%', maxWidth: '125.5%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -88,28 +90,9 @@ const styles = StyleSheet.create({
     minWidth: '100%',
     paddingVertical: 5,
     minHeight: 40,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     marginBottom: 22,
-    backgroundColor: '#FFF',
+    backgroundColor: 'transparent',
+    color: '#FFF'
   },
-  formSubmit: {
-    maxWidth: '100%',
-    minWidth: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  formSubmitText: {
-    maxWidth: '100%',
-    minWidth: '100%',
-    fontSize: 13,
-    fontWeight: '500',
-    color: '#FFF',
-  },
-  formSubmitButton: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#87AB58',
-    width: '50%',
-    height: 34
-  }
 });

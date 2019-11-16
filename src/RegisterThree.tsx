@@ -1,12 +1,7 @@
 import 'react-native-gesture-handler'
 import React from 'react';
-import { Text, TouchableOpacity, TouchableWithoutFeedback, KeyboardAvoidingView, TextInput, ScrollView, StyleSheet, View, Keyboard } from 'react-native';
-
-const DismissKeyboard = ({ children }) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    {children}
-  </TouchableWithoutFeedback>
-);
+import { Text, TouchableOpacity, KeyboardAvoidingView, TextInput, ScrollView, StyleSheet, View } from 'react-native';
+import DismissKeyboard from './DismissKeyboard';
 
 export default function RegisterThree({ navigation }) {
   return (
@@ -85,24 +80,4 @@ const styles = StyleSheet.create({
     marginBottom: 22,
     backgroundColor: '#FFF',
   },
-  formSubmit: {
-    maxWidth: '100%',
-    minWidth: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  formSubmitText: {
-    maxWidth: '100%',
-    minWidth: '100%',
-    fontSize: 13,
-    fontWeight: '500',
-    color: '#FFF',
-  },
-  formSubmitButton: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#87AB58',
-    width: '50%',
-    height: 34
-  }
 });

@@ -1,14 +1,8 @@
 import 'react-native-gesture-handler'
 import React from 'react';
-import { Text, TouchableOpacity, TouchableWithoutFeedback, ActivityIndicator, KeyboardAvoidingView, TextInput, ScrollView, StyleSheet, View, Keyboard } from 'react-native';
-import { Image } from 'react-native-elements';
-const Logo = require('./Logo.png');
-
-const DismissKeyboard = ({ children }) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    {children}
-  </TouchableWithoutFeedback>
-);
+import { Text, TouchableOpacity, KeyboardAvoidingView, TextInput, ScrollView, StyleSheet, View } from 'react-native';
+import Logo from './Logo';
+import DismissKeyboard from './DismissKeyboard';
 
 export default function Login({ navigation }) {
   return (
@@ -16,13 +10,7 @@ export default function Login({ navigation }) {
       <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
         <KeyboardAvoidingView behavior="position" style={styles.alignItemsCenter}>
           <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <View style={[styles.alignItemsCenter, styles.image]}>
-              <Image
-                source={Logo}
-                style={{ width: 200, height: 200 }}
-                PlaceholderContent={<ActivityIndicator />}
-              />
-            </View>
+          <Logo/>
             <TextInput
               style={styles.input}
               placeholder='Nome'
@@ -88,24 +76,4 @@ const styles = StyleSheet.create({
     marginBottom: 22,
     backgroundColor: '#FFF',
   },
-  formSubmit: {
-    maxWidth: '100%',
-    minWidth: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  formSubmitText: {
-    maxWidth: '100%',
-    minWidth: '100%',
-    fontSize: 13,
-    fontWeight: '500',
-    color: '#FFF',
-  },
-  formSubmitButton: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#87AB58',
-    width: '50%',
-    height: 34
-  }
 });

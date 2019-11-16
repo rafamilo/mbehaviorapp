@@ -1,14 +1,8 @@
 import 'react-native-gesture-handler'
 import React from 'react';
-import { Text, TouchableWithoutFeedback, ScrollView, KeyboardAvoidingView, TextInput, ActivityIndicator, StyleSheet, View, Alert, TouchableOpacity, Keyboard } from 'react-native';
-import { Image } from 'react-native-elements';
-const Logo = require('./Logo.png');
-
-const DismissKeyboard = ({ children }) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    {children}
-  </TouchableWithoutFeedback>
-);
+import { Text, ScrollView, KeyboardAvoidingView, TextInput, StyleSheet, View, Alert, TouchableOpacity } from 'react-native';
+import Logo from './Logo';
+import DismissKeyboard from './DismissKeyboard';
 
 export default function Login({ navigation }) {
   return (
@@ -16,13 +10,7 @@ export default function Login({ navigation }) {
       <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
         <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <KeyboardAvoidingView behavior="position" style={styles.alignItemsCenter}>
-            <View style={[styles.alignItemsCenter, styles.image]}>
-              <Image
-                source={Logo}
-                style={{ width: 200, height: 200 }}
-                PlaceholderContent={<ActivityIndicator />}
-              />
-            </View>
+            <Logo/>
             <View style={[styles.alignItemsCenter, styles.form]}>
               <TextInput
                 style={styles.input}
