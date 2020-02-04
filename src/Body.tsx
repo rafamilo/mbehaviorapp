@@ -6,7 +6,7 @@ export default class Body extends Component {
     return (
       <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
         <KeyboardAvoidingView behavior="position" style={styles.alignItemsCenter}>
-          <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <ScrollView contentContainerStyle={{ flex: 0.5, alignItems: 'center', justifyContent: 'center' }}>
             {children}
           </ScrollView>
         </KeyboardAvoidingView>

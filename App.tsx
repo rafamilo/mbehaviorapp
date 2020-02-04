@@ -1,5 +1,6 @@
 import Login from './src/Login';
 import RegisterRouter from './src/RegisterRouter';
+import Congratulations from './src/Congratulations';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -13,7 +14,13 @@ const Routes = createAppContainer(
         headerBackTitle: 'Login'
       },
     },
-    RegisterRouter
+    RegisterRouter,
+    Congratulations: {
+      screen: Congratulations,
+      navigationOptions: {
+        header: null,
+      }
+    }
   })
 );
 

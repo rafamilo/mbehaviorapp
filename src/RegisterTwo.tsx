@@ -8,12 +8,13 @@ export default function RegisterTwo({ navigation }) {
   return (
     <DismissKeyboard>
       <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
-        <KeyboardAvoidingView behavior="position" style={styles.alignItemsCenter}>
+        <KeyboardAvoidingView behavior="padding" style={styles.alignItemsCenter}>
           <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <TextInput
+              autoFocus
               style={styles.input}
               placeholder='Data de nascimento'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
           </ScrollView>
           <RegisterMenuFooter navigation={navigation} antes="RegisterOne" depois="RegisterThree" />
@@ -49,8 +50,9 @@ const styles = StyleSheet.create({
     minWidth: '100%',
     paddingVertical: 5,
     minHeight: 40,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     marginBottom: 22,
-    backgroundColor: '#FFF',
+    backgroundColor: 'transparent',
+    color: '#FFF'
   },
 });

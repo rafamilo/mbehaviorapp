@@ -9,28 +9,28 @@ export default function Login({ navigation }) {
   return (
     <DismissKeyboard>
       <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
-        <KeyboardAvoidingView behavior="position" style={styles.alignItemsCenter}>
+        <KeyboardAvoidingView behavior="padding" style={styles.alignItemsCenter}>
           <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Logo/>
             <TextInput
+              autoFocus
               style={styles.input}
               placeholder='Nome'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
             <TextInput
               style={styles.input}
               placeholder='Sobrenome'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
             <TextInput
               style={styles.input}
               placeholder='E-mail'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
             <TextInput
               style={styles.input}
               placeholder='Confirmar e-mail'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
           </ScrollView>
           <View style={{ backgroundColor: '#FFF', paddingVertical: 15, paddingHorizontal: 30, marginHorizontal: '-13%', minWidth: '125.5%', maxWidth: '125.5%', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
@@ -73,8 +73,9 @@ const styles = StyleSheet.create({
     minWidth: '100%',
     paddingVertical: 5,
     minHeight: 40,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     marginBottom: 22,
-    backgroundColor: '#FFF',
+    backgroundColor: 'transparent',
+    color: '#FFF'
   },
 });

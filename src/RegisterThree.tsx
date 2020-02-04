@@ -8,27 +8,28 @@ export default function RegisterThree({ navigation }) {
   return (
     <DismissKeyboard>
       <View style={[styles.body, styles.alignItemsCenter, styles.justifyContentCenter]}>
-        <KeyboardAvoidingView behavior="position" style={styles.alignItemsCenter}>
+        <KeyboardAvoidingView behavior="padding" style={styles.alignItemsCenter}>
           <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <TextInput
+              autoFocus
               style={styles.input}
               placeholder='Páis'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
             <TextInput
               style={styles.input}
               placeholder='Estado'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
             <TextInput
               style={styles.input}
               placeholder='Cidade'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
             <TextInput
               style={styles.input}
               placeholder='Confirmar e-mail'
-              placeholderTextColor='#3E3E3E'
+              placeholderTextColor='#FFF'
             />
           </ScrollView>
           <RegisterMenuFooter navigation={navigation} antes="RegisterTwo" depois="RegisterFour" />
@@ -64,8 +65,9 @@ const styles = StyleSheet.create({
     minWidth: '100%',
     paddingVertical: 5,
     minHeight: 40,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     marginBottom: 22,
-    backgroundColor: '#FFF',
+    backgroundColor: 'transparent',
+    color: '#FFF'
   },
 });

@@ -2,8 +2,8 @@
   "name": "mbehaviorapp",
   "displayName": "mBehaviorApp",
   "expo": {
-    "name": "mbehaviorapp",
-    "slug": "expo-template-bare",
+    "name": "mBehavior App",
+    "slug": "m-behavior-app",
     "privacy": "unlisted",
     "sdkVersion": "35.0.0",
     "version": "1.0.0",
@@ -12,6 +12,7 @@
       "ios",
       "android",
       "web"
-    ]
+    ],
+    "description": ""
   }
 }

@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import React, { Component } from 'react';
-import { TextInput, Text, KeyboardAvoidingView, ScrollView, StyleSheet, View } from 'react-native';
+import { TextInput, KeyboardAvoidingView, ScrollView, StyleSheet, View } from 'react-native';
 import DismissKeyboard from './DismissKeyboard';
 import { CheckBox } from 'react-native-elements';
 import RegisterMenuFooter from './RegisterMenuFooter';
@@ -11,7 +11,6 @@ export default class RegisterFour extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: true,
       quantidadeTelefones: '',
       usoPessoal: false,
       usoTrabalho: false,
@@ -35,8 +34,6 @@ export default class RegisterFour extends Component {
                 onChangeText={quantidadeTelefones => this.setState({ quantidadeTelefones })}
                 placeholderTextColor='#FFF'
               />
-              <Text>
-              </Text>
               {this.state.quantidadeTelefones && Number.parseInt(this.state.quantidadeTelefones) ?
                 (<View>
                   <CheckBox
